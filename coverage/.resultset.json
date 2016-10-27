@@ -1,0 +1,80 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/harry/workspace/CoderTicket/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/controllers/tickets_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/controllers/events_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/models/venue.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/models/category.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/models/ticket_type.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/models/region.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/models/event.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/helpers/tickets_helper.rb": [
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/helpers/events_helper.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/harry/workspace/CoderTicket/app/helpers/application_helper.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1477581726
+  }
+}
