@@ -4,6 +4,8 @@
       <img class="card-img-top" src="<%= event.hero_image_url %>">
       <div class="card-block">
         <h4 class="card-title"><%= event.name %></h4>
+        <p><span style="font-weight: bold">Start:</span> <%= event.starts_at.strftime('%A, %d %b %Y %l:%M %p') %></p>
+        <p><span style="font-weight: bold">End: </span><%= event.ends_at.strftime('%A, %d %b %Y %l:%M %p') %></p>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
         </p>
       </div>
