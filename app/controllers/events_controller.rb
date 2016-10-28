@@ -29,6 +29,16 @@ class EventsController < ApplicationController
       redirect_to event_path(@event) and return
     end
 
+    if @event.published_at
+      flash[:success] = 'This event has been published before'
+      redirect_to event_path(@event) and return
+    end
+
+    if !@event.have_enough_ticket_types?
+      flash[:error] = 'At least one ticket type is needed before publishing this event.'
+      redirect_to event_path(@event) and return
+    end
+
     @event.published_at = DateTime.now
     
     if @event.save

@@ -10,4 +10,8 @@ class Event < ActiveRecord::Base
   def self.upcoming
     Event.where("starts_at > ?", Time.now)
   end
+
+  def have_enough_ticket_types?
+    TicketType.where(event_id: id).count > 0
+  end
 end
