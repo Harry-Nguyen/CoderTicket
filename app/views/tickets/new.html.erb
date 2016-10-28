@@ -41,7 +41,7 @@
           <tr>
             <td> <%= type.name %> </td>
             <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
-            <td> <%= select_tag('quantity[' + (type.id).to_s + ']', options_for_select(0..10)) %></td> 
+            <td> <%= select_tag('quantity[' + (type.id).to_s + ']', options_for_select(0..20)) %></td> 
           </tr>
           <% end %> 
         </table>

@@ -24,6 +24,11 @@ class TransactionsController < ApplicationController
           redirect_to new_event_ticket_path(event_id) and return
         end
 
+        if (quantity.to_i > 10)
+          flash[:error] = 'You can buy up to 10 tickets/type/transaction only'
+          redirect_to new_event_ticket_path(event_id) and return
+        end
+
         cost += ticket.price * quantity.to_i
       end
     end
