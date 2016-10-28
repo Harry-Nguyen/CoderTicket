@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'events#index'
   get 'upcoming' => 'events#index'
+  #post 'transactions' => 'transactions#create'
+  resources :transactions, only: [:show, :create]
 
   resources :events do
     resources :tickets

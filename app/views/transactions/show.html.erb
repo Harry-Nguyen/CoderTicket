@@ -1,0 +1,25 @@
+<br><br>
+<div class="container">
+<h1>Transaction</h1>
+
+<br>
+<p><strong>Email:</strong> <%= @transaction.email %></p>
+<% types = @transaction.ticketTypes.split(',') %>
+<% quantities = @transaction.quantities.split(',') %>
+
+<table class="table">
+  <tr>
+    <td><strong>Type</strong></td>
+    <% types.each do |t| %>
+    <td><%= TicketType.find(t).name %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <td><strong>Quantity</strong></td>
+    <% quantities.each do |q| %>
+    <td><%= q %></td>
+    <% end %>
+  </tr>
+</table>
+<p><strong>Total cost:</strong> <%= @transaction.cost %></p>
+</div>
