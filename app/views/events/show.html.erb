@@ -27,13 +27,16 @@
     </div>
     <div class="col-md-9 event-content">
 
-      <% if !@event.published_at %>
-        <br><%= link_to 'Publish this Event', publish_path(@event), method: 'post', class: 'btn btn-warning' %><br><br>
-      <% end %>
+      <div><br>
+        <% if !@event.published_at %>
+          <%= link_to 'Publish this Event', publish_path(@event), method: 'post', class: 'btn btn-warning' %>
+        <% end %>
 
-      <% if @event.user_id == session[:user_id] %>
-        <br><%= link_to 'Add ticket type', new_event_ticket_type_path(@event), class: "btn btn-primary" %><br><br>
-      <% end %>
+        <% if @event.user_id == session[:user_id] %>
+          <%= link_to 'Add ticket type', new_event_ticket_type_path(@event), class: "btn btn-primary" %>
+          <%= link_to 'Edit Event', edit_event_path(@event), class: "btn btn-danger" %>
+        <% end %>
+      </div>
       <div class="hero-img hidden-sm-down" style="background-image: url(<%= @event.hero_image_url %>); background-size: cover;"> </div>
       <div class="container">
         <h3> <%= @event.name %> </h3>

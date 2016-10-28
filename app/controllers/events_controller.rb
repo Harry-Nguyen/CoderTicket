@@ -30,6 +30,31 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def edit
+    @event = Event.find(params[:id])
+    if @event.user_id != session[:user_id]
+      flash.now[:error] = 'Only creator can edit this event'
+      render :show
+    end
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.user_id != session[:user_id]
+      flash.now[:error] = 'Only creator can edit this event'
+      render :show
+    end
+    #params[:event][:starts_at] = DateTime.strptime(params[:event][:starts_at], '%d-%m-%Y %I:%M:%S %p')
+    #params[:event][:ends_at] = DateTime.strptime(params[:event][:ends_at], '%d-%m-%Y %I:%M:%S %p')
+
+    if @event.update(event_params)
+      flash[:success] = 'This event has been published'
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
+  end
+
   def publish
     @event = Event.find(params[:id])
     
