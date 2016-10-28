@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :tickets
   end
 
+  post 'events/:id/publish' => 'events#publish', as: :publish
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -21,6 +21,22 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def publish
+    @event = Event.find(params[:id])
+    
+    if @event.user_id != session[:user_id]
+      flash[:error] = 'Only creator can publish this event'
+      redirect_to event_path(@event) and return
+    end
+
+    @event.published_at = DateTime.now
+    
+    if @event.save
+      flash[:success] = 'This event has been published'
+    end
+    redirect_to event_path(@event)
+  end
+
   def create
     params[:event][:user_id] = session[:user_id]
     params[:event][:starts_at] = DateTime.strptime(params[:event][:starts_at], '%d-%m-%Y %I:%M:%S %p')
