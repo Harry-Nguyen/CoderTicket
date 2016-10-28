@@ -4,6 +4,11 @@ class EventsController < ApplicationController
 
     @events = Event.upcoming
 
+    @events.each do |e|
+      if !e.published_at
+        @events -= [e]
+      end
+    end
     if search
       @events.each do |e|
         if !e.name.include? search
