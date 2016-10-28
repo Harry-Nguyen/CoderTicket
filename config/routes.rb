@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :transactions, only: [:show, :create]
   resources :users, only: [:new, :create, :index]
 
+  get 'login' => 'sessions#new'
+  post 'login_submit' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
   resources :events do
     resources :tickets
   end

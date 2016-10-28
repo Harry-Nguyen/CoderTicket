@@ -11,12 +11,18 @@
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <a class="navbar-brand" href="<%= root_path %>">Coder Ticket</a>
     <ul class="nav navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
-      </li>
+      <% if session[:user_id] %>
+        <% us = User.find(session[:user_id]) %>
+        <span class="greeting-nav">Hi, <%= us.name %></span>
+        <%= link_to "Logout", logout_path, :method => "delete", class: "btn btn-danger" %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </nav>  
 
