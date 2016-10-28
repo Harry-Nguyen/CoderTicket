@@ -15,6 +15,7 @@
         <% us = User.find(session[:user_id]) %>
         <span class="greeting-nav">Hi, <%= us.name %></span>
         <%= link_to "Logout", logout_path, :method => "delete", class: "btn btn-danger" %>
+        <%= link_to "Create Event", new_event_path, class: "btn btn-primary" %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", login_path, class: "nav-link" %>

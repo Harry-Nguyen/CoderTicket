@@ -1,0 +1,16 @@
+<div class="col-sm-6">
+<h1>Create Event</h1>
+<%= form_for @event do |f| %>
+  <% if @event.errors.present? %>
+    <%= @event.errors.full_messages.to_sentence %>
+  <% end %>
+  <%= f.text_field :starts_at, placeholder: 'Start: DD-MM-YYYY HH-MM-SS AM/PM', class: "form-control" %>
+  <%= f.text_field :ends_at, placeholder: 'End: DD-MM-YYYY HH-MM-SS AM/PM', class: "form-control" %>
+  <%= f.text_field :venue_id, placeholder: 'Venue ID', class: "form-control" %>
+  <%= f.text_field :hero_image_url, placeholder: 'Image URL', class: "form-control" %>
+  <%= f.text_field :extended_html_description, placeholder: 'Description', class: "form-control" %>
+  <%= f.text_field :category_id, placeholder: 'Category ID', class: "form-control" %>
+  <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
+<%= f.submit "Create", class: "btn btn-warning" %>
+<% end %>
+</div>
