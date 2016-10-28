@@ -3,6 +3,9 @@
 <h1>Transaction</h1>
 
 <br>
+<% if flash[:success] %>
+  <p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
 <p><strong>Email:</strong> <%= @transaction.email %></p>
 <% types = @transaction.ticketTypes.split(',') %>
 <% quantities = @transaction.quantities.split(',') %>

@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
 
   def create
     tickets = params[:quantity]
-    
+
     ticketType = []
     quantities = []
     cost = 0
@@ -18,6 +18,12 @@ class TransactionsController < ApplicationController
 
         ticket = TicketType.find(type)
         event_id = ticket.event_id
+
+        if (quantity.to_i > ticket.max_quantity)
+          flash[:error] = 'Not enough ticket ' + ticket.name + ' for you to buy'
+          redirect_to new_event_ticket_path(event_id) and return
+        end
+
         cost += ticket.price * quantity.to_i
       end
     end
