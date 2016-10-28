@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :events do
     resources :tickets
     resources :ticket_types
+
+    collection do
+      get 'mine'
+    end
   end
 
   post 'events/:id/publish' => 'events#publish', as: :publish

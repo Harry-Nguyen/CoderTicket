@@ -13,6 +13,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def mine
+    @events = Event.where(user_id: session[:user_id])
+  end
+
   def show
     @event = Event.find(params[:id])
   end
