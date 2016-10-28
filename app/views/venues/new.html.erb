@@ -1,0 +1,12 @@
+<div class="col-sm-6">
+<h1>Create Venue</h1>
+<%= form_for @venue do |f| %>
+  <% if @venue.errors.present? %>
+    <%= @venue.errors.full_messages.to_sentence %>
+  <% end %>
+  <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
+  <%= f.text_field :full_address, placeholder: 'Full address', class: "form-control" %>
+  <%= f.select :region_id, options_for_select(1..Region.count) %>
+<%= f.submit "Create", class: "btn btn-warning" %>
+<% end %>
+</div>

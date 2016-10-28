@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #post 'transactions' => 'transactions#create'
   resources :transactions, only: [:show, :create]
   resources :users, only: [:new, :create, :index]
+  resources :venues, only: [:new, :create, :index, :show]
 
   get 'login' => 'sessions#new'
   post 'login_submit' => 'sessions#create'
