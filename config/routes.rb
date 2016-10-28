@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   get 'upcoming' => 'events#index'
   #post 'transactions' => 'transactions#create'
   resources :transactions, only: [:show, :create]
+  resources :users, only: [:new, :create, :index]
 
   resources :events do
     resources :tickets
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

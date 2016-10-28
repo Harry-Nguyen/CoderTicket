@@ -1,0 +1,13 @@
+<div class="col-sm-6">
+<h1>Sign Up</h1>
+<%= form_for @user do |f| %>
+  <% if @user.errors.present? %>
+    <%= @user.errors.full_messages.to_sentence %>
+  <% end %>
+  <%= f.text_field :email, placeholder: 'Email', class: "form-control" %>
+  <%= f.text_field :name, placeholder: 'Name', class: "form-control" %>
+  <%= f.password_field :password, placeholder: 'Password', class: "form-control" %>
+  <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation', class: "form-control" %>
+  <%= f.submit "Register", class: "btn btn-warning" %>
+<% end %>
+</div>

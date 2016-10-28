@@ -15,10 +15,19 @@
         <a class="nav-link" href="#">Log In</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Sign Up</a>
+        <%= link_to "Sign Up", new_user_path, class: "nav-link" %>
       </li>
     </ul>
   </nav>  
+
+<br><br>
+<% if flash[:success] %>
+  <p class="alert alert-success"><%= flash[:success] %></p>
+<% end %>
+<% if flash[:error] %>
+  <p class="alert alert-danger"><%= flash[:error] %></p>
+<% end %>
+
 
 <%= yield %>
 
