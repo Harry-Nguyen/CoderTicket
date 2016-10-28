@@ -15,7 +15,7 @@
             </div>
 
             <div class="col-md-6 price text-right">
-              <%= number_to_currency(ticket_type.price, unit: 'VND', precision: 0) %>
+              <%= number_to_currency(ticket_type.price, unit: 'VND ', precision: 0) %>
             </div>
           </div>
           <div class="clearfix"></div>
@@ -29,6 +29,10 @@
 
       <% if !@event.published_at %>
         <br><%= link_to 'Publish this Event', publish_path(@event), method: 'post', class: 'btn btn-warning' %><br><br>
+      <% end %>
+
+      <% if @event.user_id == session[:user_id] %>
+        <br><%= link_to 'Add ticket type', new_event_ticket_type_path(@event), class: "btn btn-primary" %><br><br>
       <% end %>
       <div class="hero-img hidden-sm-down" style="background-image: url(<%= @event.hero_image_url %>); background-size: cover;"> </div>
       <div class="container">

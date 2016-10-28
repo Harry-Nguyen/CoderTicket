@@ -1,0 +1,15 @@
+<div class="col-sm-6">
+<br>
+<h1>Create ticket type</h1>
+
+<%= form_tag event_ticket_types_path do %>
+  <% if @type.errors.present? %>
+    <%= @type.errors.full_messages.to_sentence %>
+  <% end %>
+  <%= text_field_tag 'price', nil, placeholder: 'Price', class: "form-control" %>
+  <%= text_field_tag 'name', nil, placeholder: 'Name', class: "form-control" %>
+  <%= text_field_tag 'max_quantity', nil, placeholder: 'Max Quantity', class: "form-control" %>
+
+  <%= submit_tag "Create", class: "btn btn-warning" %>
+<% end %>
+</div>
