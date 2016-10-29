@@ -1,60 +1,46 @@
-# Homework 3 - *Name of App*
+# Homework 3 - CoderTicket
 
-**Name of your app** is a Ruby on Rails application that allows users to create and buy tickets to cool events.
+CoderTicket is a Ruby on Rails application that allows users to create and buy tickets to cool events.
 
-- Submitted by: **Your Name Here**
-- Time spent: **X** hours
-- URL: **Insert your Heroku URL here**
+- Submitted by: Dat Nguyen
+- Time spent: 9 hours
+- URL: http://harryticket.herokuapp.com/
 - SimpleCov Test Coverage: [coverage/index.html][coverage][index.html]
 
 ## User Stories
 
 The following **required** functionality is complete:
 
-* [ ] Implement required user stories
-* [ ] 10 model tests, 2 route tests, 2 controller tests, 2 view tests.
+* [x] Implement required user stories
+* [x] 10 model tests, 2 route tests, 2 controller tests, 2 view tests.
 
 The person with best test coverage will win a small present from the instructor :)
 
 #### Events
 
-* [ ] Users can see a list of upcoming events. Past events should not be shown.
-    * **HINT**: Good candidate for a test. You can write test first --> fail --> fast similar to demo
-    * Suggestions:
-        * Implement `/upcoming` route test to go to 'events#index'
-        * Implement `Event.upcoming` class method (with a test)
-        * Implement `EventsController#index` action test
-* [ ] Users can search for events from the homepage.
-* [ ] Users can click on an event to see details about the event.
-* [ ] Users can click on "Book Now" to go to a page to purchase tickets.
+* [x] Users can see a list of upcoming events. Past events should not be shown.
+* [x] Users can search for events from the homepage.
+* [x] Users can click on an event to see details about the event.
+* [x] Users can click on "Book Now" to go to a page to purchase tickets.
 
 #### Tickets
 
 * [x] Each event can have multiple types of tickets, each with a different `price` and `max_quantity`.
-* [ ] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
-* [ ] Users cannot buy more tickets than the quantity available.
-* [ ] Users can only buy up to 10 of a ticket type at a time. Show a nice flash message.
+* [x] Users can buy tickets to an event, choose the types of tickets, and the quantity of tickets.
+* [x] Users cannot buy more tickets than the quantity available.
+* [x] Users can only buy up to 10 of a ticket type at a time. Show a nice flash message.
 
 #### Users
 
-* [ ] User can sign up by providing their email, password, and name.
-* [ ] User can login using an email and password.
-* [ ] Users can create events.
-* [ ] Users must click "publish event" before an event becomes viewable to other users.
-    * **HINT**: use `published_at:datetime` and `Event.published` scope (class method)
-    * Suggestions:
-        * See [Add More RESTful Actions](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions) to add a `publish` POST action (member type)
-        * Write a test to make sure only an event creator can publish an event
-* [ ] Users can create ticket types for that event.
-    * **HINT**: make sure you understand what a ticket tpe is. Ask if not clear.
-* [ ] Users can create venues.
-* [ ] An event must have at least one `ticket_type` defined before it can be published.
-    * **HINT**: add `Event#have_enough_ticket_types?` (and test it)
-* [ ] User can see a list of events he or she has created.
-    * Suggestions
-        * You can use `/events/mine` [collection routes](http://guides.rubyonrails.org/routing.html#adding-more-restful-actions)
-* [ ] Users can edit their event after creation. But only the user who created the event can edit the event.
-    * **HINT**: use a `before_action :check_event_changing_permission` to redirect users to event page with a flash error if applicable.
+* [x] User can sign up by providing their email, password, and name.
+* [x] User can login using an email and password.
+* [x] Users can create events.
+* [x] Users must click "publish event" before an event becomes viewable to other users.
+* [x] Users can create ticket types for that event.
+* [x] Users can create venues.
+* [x] An event must have at least one `ticket_type` defined before it can be published.
+* [x] User can see a list of events he or she has created.
+* [x] Users can edit their event after creation. But only the user who created the event can edit the event.
 
 ### Optional Stories
 
@@ -73,7 +59,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Dat Nguyen]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
