@@ -48,7 +48,7 @@ class EventsController < ApplicationController
     #params[:event][:ends_at] = DateTime.strptime(params[:event][:ends_at], '%d-%m-%Y %I:%M:%S %p')
 
     if @event.update(event_params)
-      flash[:success] = 'This event has been published'
+      flash[:success] = 'This event has been updated'
       redirect_to event_path(@event)
     else
       render :edit
