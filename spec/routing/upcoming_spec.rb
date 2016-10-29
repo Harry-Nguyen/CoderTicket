@@ -7,4 +7,11 @@ RSpec.describe "routing to upcoming", :type => :routing do
       :action => "index"
     )
   end
+
+  it "routes /events/mine to events#mine" do
+    expect(:get => "/events/mine").to route_to(
+      :controller => "events",
+      :action => "mine"
+    )
+  end
 end

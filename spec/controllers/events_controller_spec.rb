@@ -18,9 +18,23 @@ RSpec.describe EventsController, type: :controller do
       region1 = Region.create(name: "Ho Chi Minh")
       venue1 = Venue.create(name: "Venue 1", region: region1)
 
-      event1 = Event.create!(name: "Event 1", starts_at: Time.now + 10000000, venue: venue1, category: category1, extended_html_description: "This is event 1")
-      event2 = Event.create!(name: "Event 2", starts_at: Time.now - 10000000, venue: venue1, category: category1, extended_html_description: "This is event 2")
-      event3 = Event.create!(name: "Event 3", starts_at: Time.now + 20000000, venue: venue1, category: category1, extended_html_description: "This is event 3")
+      event1 = Event.create!(name: "Event 1", starts_at: Time.now + 10000000, venue: venue1, category: category1, extended_html_description: "This is event 1", published_at: Time.now - 1000)
+      event2 = Event.create!(name: "Event 2", starts_at: Time.now - 10000000, venue: venue1, category: category1, extended_html_description: "This is event 2", published_at: Time.now - 1000)
+      event3 = Event.create!(name: "Event 3", starts_at: Time.now + 20000000, venue: venue1, category: category1, extended_html_description: "This is event 3", published_at: Time.now - 1000)
+
+      get :index
+
+      expect(assigns(:events)).to match_array([event1, event3])
+    end
+
+    it "load published events only" do
+      category1 = Category.create(name: "Entertainment")
+      region1 = Region.create(name: "Ho Chi Minh")
+      venue1 = Venue.create(name: "Venue 1", region: region1)
+
+      event1 = Event.create!(name: "Event 1", starts_at: Time.now + 10000000, venue: venue1, category: category1, extended_html_description: "This is event 1", published_at: Time.now - 1000)
+      event2 = Event.create!(name: "Event 2", starts_at: Time.now + 30000000, venue: venue1, category: category1, extended_html_description: "This is event 2", published_at: nil)
+      event3 = Event.create!(name: "Event 3", starts_at: Time.now + 20000000, venue: venue1, category: category1, extended_html_description: "This is event 3", published_at: Time.now - 1000)
 
       get :index
 

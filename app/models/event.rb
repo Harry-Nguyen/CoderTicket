@@ -14,4 +14,8 @@ class Event < ActiveRecord::Base
   def have_enough_ticket_types?
     TicketType.where(event_id: id).count > 0
   end
+
+  def ticketTypes
+    TicketType.where(event_id: id)
+  end
 end

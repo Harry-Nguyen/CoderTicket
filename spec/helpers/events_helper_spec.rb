@@ -10,6 +10,10 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SessionsHelper, type: :helper do
-  #pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe EventsHelper, type: :helper do
+  describe ".header_background_image_url" do
+    it "return string" do
+      header_background_image_url.is_a? String
+    end
+  end
 end
